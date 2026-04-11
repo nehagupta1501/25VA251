@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops</title>
+</head>
+<body>
+    <script>
+        //for loop
+        let student = ["NEHA","PRIYANKA","KIARA"];
+        for(let i = 0;i<student.length;i++){
+            console.log(student[i]);
+        }
+
+        //while loop
+        let x=0;
+        while(x<student.length){
+            console.log(student[x]);
+            x++;
+        }
+        //for ...of loop
+        //iterates value of iterable objects like array string map set
+        for(let x of student){
+            console.log(x);
+        }
+
+        let myself=["NEHA","GUPTA","7987224223","CSE-DS2"];
+        for(let x of myself){
+            console.log(x);
+        }
+        
+
+    </script>
+
+
+
+
+</body>
+</html>
