@@ -179,7 +179,6 @@ src="https://cdn-icons-png.flaticon.com/512/2991/2991108.png"
 <p>
 📌 {note.subject}
 </p>
-
 <p>
 👤 Uploaded by: {note.uploaded}
 </p>
