@@ -1,30 +1,23 @@
-function Login(){
+import { Link } from "react-router-dom";
 
+function Login() {
+  return (
+    <div className="form-container">
+      <form className="form-box">
+        <h2>Login</h2>
 
-return(
+        <input type="email" placeholder="Email" />
 
-<div className="container">
+        <input type="password" placeholder="Password" />
 
+        <button type="submit">Login</button>
 
-<h1>Student Login</h1>
-
-
-<input placeholder="Email"/>
-
-
-<input placeholder="Password"/>
-
-
-<button>
-Login
-</button>
-
-
-</div>
-
-)
-
+        <p>
+          Don't have an account? <Link to="/signup">Signup</Link>
+        </p>
+      </form>
+    </div>
+  );
 }
-
 
 export default Login;

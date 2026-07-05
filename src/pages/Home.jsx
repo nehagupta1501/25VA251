@@ -1,231 +1,116 @@
-import {useState} from "react";
+import { useState } from "react";
+import Hero from "../components/Hero";
+import Searchbar from "../components/Searchbar";
+import Notecard from "../components/Notecard";
 
-function Home(){
+function Home() {
 
-// const [notes,setNotes]=useState([]);
-const [notes,setNotes]=useState([
+const notes = [
+
 {
-id:1,
-title:"Data Structures Notes",
-subject:"CSE",
-uploaded:"Neha",
-downloads:120
+title:"DBMS Notes",
+subject:"Database",
+semester:"3",
+branch:"CSE"
 },
 
 {
-id:2,
-title:"Engineering Mathematics Unit 1",
-subject:"Mathematics",
-uploaded:"Rahul",
-downloads:85
+title:"DSA Notes",
+subject:"Data Structures",
+semester:"2",
+branch:"CSE"
 },
 
 {
-id:3,
-title:"Digital Logic Design",
-subject:"Electronics",
-uploaded:"Aman",
-downloads:60
+title:"Operating System",
+subject:"OS",
+semester:"4",
+branch:"CSE"
 },
 
 {
-id:4,
-title:"Programming in C++",
-subject:"CSE",
-uploaded:"Priya",
-downloads:150
+title:"Computer Networks",
+subject:"CN",
+semester:"5",
+branch:"CSE"
 },
 
 {
-id:5,
-title:"Physics Semester 1",
-subject:"Physics",
-uploaded:"Karan",
-downloads:70
-}
+title:"Java Programming",
+subject:"Java",
+semester:"3",
+branch:"CSE"
+},
 
-]);
-
-const [title,setTitle]=useState("");
-const [subject,setSubject]=useState("");
-
-
-function addNote(){
-
-if(!title || !subject){
-alert("Fill details");
-return;
-}
-
-
-setNotes([
-...notes,
 {
-id:Date.now(),
-title,
-subject
-}
-]);
-
-setTitle("");
-setSubject("");
-
+title:"Python Notes",
+subject:"Python",
+semester:"2",
+branch:"CSE"
 }
 
+];
+
+const [search,setSearch]=useState("");
+
+const filtered=notes.filter(note=>
+
+note.title.toLowerCase().includes(search.toLowerCase()) ||
+
+note.subject.toLowerCase().includes(search.toLowerCase())
+
+);
 
 return(
 
-<div>
+<>
 
+<Hero/>
 
-<section className="hero">
+<Searchbar onSearch={setSearch}/>
 
-<div>
+<div className="category-section">
 
-<h1>
-Welcome to Campus Notes Hub 📚
-</h1>
+<h2>📂 Categories</h2>
 
-<p>
-Share, Download and Manage your college notes easily
-</p>
+<div className="categories">
 
+<div>CSE</div>
 
-<button>
-Explore Notes
-</button>
+<div>IT</div>
+
+<div>ECE</div>
+
+<div>ME</div>
+
+<div>CE</div>
+
+<div>EE</div>
 
 </div>
 
-
-<img
-src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3"
- />
-
-</section>
-
-
-
-
-<section className="stats">
-
-<div>
-<h2>500+</h2>
-<p>Students</p>
 </div>
 
-<div>
-<h2>1000+</h2>
-<p>Notes</p>
-</div>
+<h2 className="latest-title">Latest Notes</h2>
 
-<div>
-<h2>50+</h2>
-<p>Subjects</p>
-</div>
-
-
-</section>
-
-
-
-
-
-<div className="container">
-
-
-<h1>Add New Note</h1>
-
-
-<input
-placeholder="Note title"
-value={title}
-onChange={(e)=>setTitle(e.target.value)}
-/>
-
-
-<input
-placeholder="Subject"
-value={subject}
-onChange={(e)=>setSubject(e.target.value)}
-/>
-
-
-<button onClick={addNote}>
-Upload Note
-</button>
-
-
-
-<div className="cards">
-
+<div className="notes-grid">
 
 {
-notes.map(note=>(
 
-<div className="card">
+filtered.map((note,index)=>
 
-
-<img
-src="https://cdn-icons-png.flaticon.com/512/2991/2991108.png"
-/>
-
-
-<h2>
-{note.title}
-</h2>
-
-
-<p>
-📌 {note.subject}
-</p>
-<p>
-👤 Uploaded by: {note.uploaded}
-</p>
-
-<p>
-⬇ Downloads: {note.downloads}
-</p>
-
-<button>
-Download
-</button>
-
-
-</div>
-
-))
-}
-
-
-
-</div>
-
-
-</div>
-
-
-
-<footer>
-
-<h2>
-Campus Notes Hub ❤️
-</h2>
-
-<p>
-Made for college students
-</p>
-
-
-</footer>
-
-
-</div>
-
+<Notecard key={index} note={note}/>
 
 )
 
 }
 
+</div>
+
+</>
+
+)
+
+}
 
 export default Home;

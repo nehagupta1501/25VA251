@@ -1,33 +1,21 @@
-function Profile(){
+function Profile() {
+  return (
+    <div className="profile">
+      <h1>👩 My Profile</h1>
 
+      <div className="profile-card">
+        <p><b>Name:</b> Neha Gupta</p>
 
-return(
+        <p><b>College:</b> ABES Engineering College</p>
 
-<div className="container">
+        <p><b>Branch:</b> CSE</p>
 
+        <p><b>Uploaded Notes:</b> 0</p>
 
-<h1>My Profile</h1>
-
-
-<h3>Name: Neha</h3>
-
-<p>
-Branch: CSE
-</p>
-
-
-<p>
-Year: First Year
-</p>
-
-
-
-</div>
-
-
-)
-
+        <p><b>Wishlist:</b> 0</p>
+      </div>
+    </div>
+  );
 }
-
 
 export default Profile;
